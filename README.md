@@ -1,9 +1,9 @@
 import re
 
-# 연산자 우선순위
+연산자 우선순위
 precedence = {'+': 1, '-': 1, '*': 2, '/': 2}
 
-# 중위표기 → 후위표기 변환
+중위표기 → 후위표기 변환
 def infix_to_postfix(expression):
     output = []
     stack = []
@@ -27,7 +27,7 @@ def infix_to_postfix(expression):
         output.append(stack.pop())
     return output
 
-# 후위표기 계산
+ 후위표기 계산
 def evaluate_postfix(postfix):
     stack = []
     for token in postfix:
@@ -42,7 +42,7 @@ def evaluate_postfix(postfix):
             elif token == '/': stack.append(a / b)
     return stack[0]
 
-# 수식 리스트
+ 수식 리스트
 expressions = [
     "5 + 3",
     "7 * 8",
@@ -60,7 +60,7 @@ expressions = [
     "12 + 30 * 2"
 ]
 
-# 결과 출력
+결과 출력
 for idx, expr in enumerate(expressions, 1):
     postfix = infix_to_postfix(expr)
     result = evaluate_postfix(postfix)
