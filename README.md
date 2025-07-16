@@ -8,7 +8,6 @@ def infix_to_postfix(expression):
     output = []
     stack = []
     tokens = re.findall(r'\d+|[()+\-*/]', expression)
-
     for token in tokens:
         if token.isdigit():
             output.append(token)
@@ -22,11 +21,9 @@ def infix_to_postfix(expression):
             while stack and stack[-1] != '(':
                 output.append(stack.pop())
             stack.pop()  # '(' 제거
-
     while stack:
         output.append(stack.pop())
     return output
-
  후위표기 계산
 def evaluate_postfix(postfix):
     stack = []
@@ -41,7 +38,7 @@ def evaluate_postfix(postfix):
             elif token == '*': stack.append(a * b)
             elif token == '/': stack.append(a / b)
     return stack[0]
-
+    
  수식 리스트
 expressions = [
     "5 + 3",
