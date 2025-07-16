@@ -1,6 +1,6 @@
 import re
 
-# 연산자 우선순위 설정
+ 연산자 우선순위 설정
 precedence = {'+': 1, '-': 1, '*': 2, '/': 2}
 
 def infix_to_postfix(expression):
@@ -10,7 +10,6 @@ def infix_to_postfix(expression):
     output = []
     stack = []
     tokens = re.findall(r'\d+|[()+\-*/]', expression)
-
     for token in tokens:
         if token.isdigit():
             output.append(token)
@@ -24,7 +23,6 @@ def infix_to_postfix(expression):
             while stack and stack[-1] != '(':
                 output.append(stack.pop())
             stack.pop()  # '(' 제거
-
     while stack:
         output.append(stack.pop())
 
@@ -64,11 +62,9 @@ if __name__ == "__main__":
         "100 / (10 + 10)",
         "3 * (4 + (5 - 1))"
     ]
-
     for idx, expr in enumerate(expressions, 1):
         postfix = infix_to_postfix(expr)
         result = evaluate_postfix(postfix)
-
         print(f"[Case {idx}] 중위표기: {expr}")
         print(f"         후위표기: {' '.join(postfix)}")
         print(f"         연산결과: {result}\n")
